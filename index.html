@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ makes mobile scale properly -->
     <title>Do You Love Me?</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -45,12 +46,11 @@
             const flower = document.createElement("div");
             flower.classList.add("flower");
 
-            // Added 🌹 roses too
             const flowers = ["🌸", "🌼", "🌺", "🌻", "🌹"];
             flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
 
             flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.fontSize = Math.random() * 20 + 24 + "px"; // random size
+            flower.style.fontSize = Math.random() * 1.5 + 1.5 + "rem"; // responsive size
 
             document.body.appendChild(flower);
 
@@ -59,7 +59,6 @@
             }, 6000);
         }
 
-        // more flowers, faster
         setInterval(createFlower, 300);
     </script>
 
