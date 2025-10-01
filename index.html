@@ -2,19 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ makes mobile scale properly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do You Love Me?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>Will you be mine forever? 🌸💖</h2>
+    <h2 id="question">Will you be mine forever? 🌸💖</h2>
     <div class="button-container">
         <button id="yes">Yes 🌹</button>
         <button id="no">No 💔</button>
     </div>
 
     <script>
+        // 💬 Ask for name on page load
+        window.onload = function() {
+            let name = "";
+
+            while (!name) {
+                name = prompt("💖 Before we continue, please enter your name:");
+                if (name === null) { // if user clicks cancel
+                    alert("Please enter your name to proceed 🌹");
+                }
+            }
+
+            // insert name into question
+            const question = document.getElementById("question");
+            question.textContent = `${name}, will you be mine forever? 🌸💖`;
+        };
+
         const noBtn = document.getElementById("no");
         const yesBtn = document.getElementById("yes");
 
@@ -35,10 +51,10 @@
             x = Math.max(padding, Math.min(x, maxX));
             y = Math.max(padding, Math.min(y, maxY));
 
-            noBtn.style.position = "fixed";  // relative to viewport
+            noBtn.style.position = "fixed";
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
-            noBtn.style.zIndex = "9999"; // stay on top
+            noBtn.style.zIndex = "9999";
         });
 
         // 🌸 Floating Flowers Effect
