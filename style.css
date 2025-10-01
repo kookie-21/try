@@ -10,10 +10,17 @@ body {
     background: linear-gradient(135deg, #ffe5ec, #ffc2d1, #ffb3c6);
     font-family: 'Comic Sans MS', cursive, sans-serif;
     text-align: center;
+    transition: background 0.6s ease-in-out; /* smooth fade */
+}
+
+/* 🌑 Intro mode (black background) */
+body.intro {
+    background: black !important;
+    color: white; /* text readable */
 }
 
 h2 {
-    font-size: 2rem; /* responsive */
+    font-size: 2rem;
     color: #a4133c;
     margin: 20px;
     text-shadow: 2px 2px 6px rgba(255, 192, 203, 0.7);
@@ -24,12 +31,12 @@ h2 {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* ✅ buttons wrap on small screens */
+    flex-wrap: wrap;
 }
 
 button {
     padding: 15px 35px;
-    font-size: 1.2rem; /* relative unit */
+    font-size: 1.2rem;
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -52,7 +59,6 @@ button:hover {
     transform: scale(1.15);
 }
 
-/* 🌸 Floating flowers animation */
 .flower {
     position: absolute;
     bottom: -30px;
@@ -67,12 +73,10 @@ button:hover {
     100% { transform: translateY(-90vh) rotate(180deg); opacity: 0; }
 }
 
-/* 📱 Responsive tweaks */
 @media (max-width: 600px) {
     h2 {
         font-size: 1.5rem;
     }
-
     button {
         padding: 12px 25px;
         font-size: 1rem;
