@@ -6,7 +6,7 @@
     <title>Do You Love Me?</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="intro"> <!-- start with black background -->
 
     <h2 id="question">Will you be mine forever? 🌸💖</h2>
     <div class="button-container">
@@ -17,11 +17,12 @@
     <script>
         // 💬 Ask for name on page load
         window.onload = function() {
+            document.body.classList.add("intro"); // set black bg first
             let name = "";
 
             while (!name) {
                 name = prompt("💖 Before we continue, please enter your name:");
-                if (name === null) { // if user clicks cancel
+                if (name === null || name.trim() === "") {
                     alert("Please enter your name to proceed 🌹");
                 }
             }
@@ -29,6 +30,9 @@
             // insert name into question
             const question = document.getElementById("question");
             question.textContent = `${name}, will you be mine forever? 🌸💖`;
+
+            // restore romantic background
+            document.body.classList.remove("intro");
         };
 
         const noBtn = document.getElementById("no");
@@ -47,7 +51,6 @@
             let x = Math.random() * maxX;
             let y = Math.random() * maxY;
 
-            // clamp inside screen bounds
             x = Math.max(padding, Math.min(x, maxX));
             y = Math.max(padding, Math.min(y, maxY));
 
@@ -66,7 +69,7 @@
             flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
 
             flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.fontSize = Math.random() * 1.5 + 1.5 + "rem"; // responsive size
+            flower.style.fontSize = Math.random() * 1.5 + 1.5 + "rem";
 
             document.body.appendChild(flower);
 
